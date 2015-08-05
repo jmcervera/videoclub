@@ -13,6 +13,8 @@ class MoviesController < ApplicationController
       flash[:notice] = "Movie has been created."
       redirect_to @movie
     else
+      flash.now[:notice] = "Movie has not been created."
+      render :new
     end
   end
 

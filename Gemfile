@@ -52,5 +52,6 @@ group :test do
 	gem 'guard-rspec'
 	gem 'terminal-notifier-guard'
 	gem 'capybara'
+    gem 'shoulda-matchers'
 end
 

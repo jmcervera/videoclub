@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Users can create new movies", type: :feature do
-  scenario "with valid attributes" do
+  before do
     visit "/"
     click_link "New Movie"
+  end
 
+  scenario "with valid attributes" do
     fill_in "Title", with: "300: Rise of an Empire"
     fill_in "Plot", with: "Story of the battle of Thermopylae in 480 B.C."
 
@@ -17,6 +19,12 @@ RSpec.feature "Users can create new movies", type: :feature do
 
     title = "300: Rise of an Empire - Videoclub"
     expect(page).to have_title title
+  end
+
+  scenario "with invalid attributes" do
+    click_button "Create Movie"
+    expect(page).to have_content "Movie has not been created."
+    expect(page).to have_content "Title can't be blank"
   end
 
 end
