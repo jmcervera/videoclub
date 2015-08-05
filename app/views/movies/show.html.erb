@@ -1,3 +1,4 @@
 <% title(@movie.title) %>
 <h1><%= @movie.title %></h1>
+<%= link_to "Edit Movie", edit_movie_path(@movie) %>
 <%= simple_format(@movie.plot) %>
