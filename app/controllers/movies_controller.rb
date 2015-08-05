@@ -36,6 +36,13 @@ class MoviesController < ApplicationController
       flash.now[:alert] = "Movie has not been updated."
       render "edit"
     end
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    flash[:notice] = "Movie has been deleted."
+    redirect_to movies_path
 
   end
 
