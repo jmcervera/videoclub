@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 	root "movies#index"
 
   resources :movies
-  resources :seasons
+  resources :seasons do
+    resources :episodes, except: :index
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -15,3 +15,12 @@
     </ul>
 </header>
 <%= simple_format(@season.plot) %>
+
+<header>
+    <h2>Episodes</h2>
+    <ul class="actions">
+        <li>
+            <%= link_to "New Episode", new_season_episode_path(@season), class: 'new' %>
+        </li>
+    </ul>
+</header>

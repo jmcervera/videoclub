@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Users can create new movies", type: :feature do
   before do
     visit "/"
-    clicl_link "Movies"
+    click_link "Movies"
     click_link "New Movie"
   end
 
