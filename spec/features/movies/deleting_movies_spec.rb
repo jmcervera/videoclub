@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Users can delete movies", type: :feature do
   scenario "with success" do
     FactoryGirl.create(:movie, title: "Star Wars")
-    visit "/"
+    visit movies_url
     click_link "Star Wars"
     click_link "Delete Movie"
 
