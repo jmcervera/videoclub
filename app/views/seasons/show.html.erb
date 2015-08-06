@@ -24,3 +24,10 @@
         </li>
     </ul>
 </header>
+<ul id="episodes">
+    <%= @season.episodes.each do |episode| %>
+        <li>
+            <%= link_to "#{episode.number} - #{episode.title}", [@season, episode] %>
+        </li>
+    <% end %>
+</ul>

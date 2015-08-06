@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :season do
     title "MyString"
-plot "MyText"
+    plot "MyText"
   end
 
 end
