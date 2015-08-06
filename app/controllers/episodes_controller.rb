@@ -19,6 +19,19 @@ class EpisodesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @episode.update(episode_params)
+      flash[:notice] = "Episode has been updated."
+      redirect_to [@season, @episode]
+    else
+      flash.now[:alert] = "Episode has not been updated."
+      render 'edit'
+    end
+  end
+
   private
   def set_season
     @season = Season.find(params[:season_id])

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users can create new episodes" do
+RSpec.describe "Users can create new episodes", type: :feature do
   let(:season) { FactoryGirl.create(:season, title: 'Mr. Robot') }
   before do
     visit season_path(season)
