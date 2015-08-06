@@ -47,6 +47,9 @@ class SeasonsController < ApplicationController
 
   def set_season
     @season = Season.find(params[:id])
+  rescue
+    flash[:alert] = "The season you were looking for could not be found."
+    redirect_to seasons_url
   end
 
   def season_params
