@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
 	def index
     @movies = Movie.all
 	end
@@ -20,15 +21,12 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
   end
 
   def edit
-    @movie = Movie.find(params[:id])
   end
 
   def update
-    @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
       flash[:notice] = "Movie has been updated."
       redirect_to @movie
@@ -39,14 +37,19 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
     @movie.destroy
     flash[:notice] = "Movie has been deleted."
     redirect_to movies_path
-
   end
 
   private
+
+  def set_movie
+    @movie = Movie.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The movie you were looking for could not be found."
+    redirect_to movies_path
+  end
 
   def movie_params
     params.require(:movie).permit(:title, :plot)
