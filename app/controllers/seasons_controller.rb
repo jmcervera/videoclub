@@ -1,5 +1,5 @@
 class SeasonsController < ApplicationController
-  before_action :set_season, only: [:show, :edit, :update]
+  before_action :set_season, only: [:show, :edit, :update, :destroy]
   def index
     @seasons = Season.all
   end
@@ -33,6 +33,12 @@ class SeasonsController < ApplicationController
       flash.now[:alert] = "Season has not been updated."
       render 'edit'
     end
+  end
+
+  def destroy
+    @season.destroy
+    flash[:notice] = "Season has been deleted."
+    redirect_to seasons_url
   end
 
 
