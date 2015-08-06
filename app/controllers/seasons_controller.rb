@@ -1,5 +1,5 @@
 class SeasonsController < ApplicationController
-  before_action :set_season, only: [:show]
+  before_action :set_season, only: [:show, :edit, :update]
   def index
     @seasons = Season.all
   end
@@ -19,6 +19,19 @@ class SeasonsController < ApplicationController
     else
       flash.now[:alert] = "Season has not been created."
       render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @season.update(season_params)
+      flash[:notice] = "Season has been updated."
+      redirect_to @season
+    else
+      flash.now[:alert] = "Season has not been updated."
+      render 'edit'
     end
   end
 
