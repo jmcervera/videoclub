@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Users can delete movies", type: :feature do
+RSpec.feature "Users can delete seasons", type: :feature do
   scenario "with success" do
     FactoryGirl.create(:season, title: "Forever")
     visit seasons_path

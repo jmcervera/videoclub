@@ -32,6 +32,12 @@ class EpisodesController < ApplicationController
     end
   end
 
+  def destroy
+    @episode.destroy
+    flash[:notice] = "Episode has been deleted."
+    redirect_to @season
+  end
+
   private
   def set_season
     @season = Season.find(params[:season_id])
