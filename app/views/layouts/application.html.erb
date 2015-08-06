@@ -34,6 +34,9 @@
             <li class="<%= "active" if current_page?("/") %>">
               <%= link_to "Home", root_path %>
             </li>
+            <li class="<%= "active" if current_page?("/seasons") %>">
+              <%= link_to "Seasons", seasons_path %>
+            </li>
           </ul>
         </div>
       </div>

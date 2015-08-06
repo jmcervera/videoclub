@@ -1,0 +1,17 @@
+<% title(@season.title) %>
+<header>
+    <h1><%= @season.title %></h1>
+
+    <ul class="actions">
+        <li>
+            <%= link_to "Edit Season", edit_season_path(@season), class: "edit" %>
+        </li>
+        <li>
+            <%= link_to "Delete Movie", season_path(@season),
+                method: :delete,
+                data: {confirm: "Are you sure you want to delete this season?"},
+                class: "delete" %>
+        </li>
+    </ul>
+</header>
+<%= simple_format(@season.plot) %>
