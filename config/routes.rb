@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root "pages#home"
+
   namespace :admin do
     root 'application#index'
     resources :users
@@ -8,9 +10,6 @@ Rails.application.routes.draw do
       resources :episodes, except: :index
     end
   end
-
-	# root "movies#index"
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.
