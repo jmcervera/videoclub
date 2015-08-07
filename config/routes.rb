@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
+  namespace :api, defaults: {format: :json} do
+    resources :movies, only: [:index]
+  end
+
   namespace :admin do
     root 'application#index'
     resources :users
