@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :episode do
-    number 1
+    sequence(:number) {|n| n }
     title "MyString"
     plot "MyText"
     season
