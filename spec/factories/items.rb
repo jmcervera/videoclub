@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :item do
-    type ""
-title "MyString"
-plot "MyText"
+    type "Movie"
+    title "MyString"
+    plot "MyText"
   end
-
 end

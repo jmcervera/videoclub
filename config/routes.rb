@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :movies, only: [:index]
     resources :seasons, only: [:index]
+    resources :items, only: [:index]
   end
 
   namespace :admin do
