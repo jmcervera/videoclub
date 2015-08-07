@@ -4,7 +4,7 @@ RSpec.feature "Users can edit existing seasons", type: :feature do
 
   before do
     FactoryGirl.create(:season, title: "Mr. Robot")
-    visit seasons_url
+    visit admin_seasons_url
     click_link "Mr. Robot"
     click_link "Edit Season"
   end

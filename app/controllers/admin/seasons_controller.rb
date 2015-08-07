@@ -1,4 +1,4 @@
-class SeasonsController < ApplicationController
+class Admin::SeasonsController < Admin::ApplicationController
   before_action :set_season, only: [:show, :edit, :update, :destroy]
   def index
     @seasons = Season.all
@@ -15,7 +15,7 @@ class SeasonsController < ApplicationController
     @season = Season.new(season_params)
     if @season.save
       flash[:notice] = "Season has been created."
-      redirect_to @season
+      redirect_to [:admin, @season]
     else
       flash.now[:alert] = "Season has not been created."
       render 'new'
@@ -28,7 +28,7 @@ class SeasonsController < ApplicationController
   def update
     if @season.update(season_params)
       flash[:notice] = "Season has been updated."
-      redirect_to @season
+      redirect_to [:admin, @season]
     else
       flash.now[:alert] = "Season has not been updated."
       render 'edit'
@@ -38,7 +38,7 @@ class SeasonsController < ApplicationController
   def destroy
     @season.destroy
     flash[:notice] = "Season has been deleted."
-    redirect_to seasons_url
+    redirect_to admin_seasons_url
   end
 
 
@@ -49,7 +49,7 @@ class SeasonsController < ApplicationController
     @season = Season.find(params[:id])
   rescue
     flash[:alert] = "The season you were looking for could not be found."
-    redirect_to seasons_url
+    redirect_to admin_seasons_url
   end
 
   def season_params

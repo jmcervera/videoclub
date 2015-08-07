@@ -4,10 +4,10 @@
 
     <ul class="actions">
         <li>
-            <%= link_to "Edit Season", edit_season_path(@season), class: "edit" %>
+            <%= link_to "Edit Season", edit_admin_season_path(@season), class: "edit" %>
         </li>
         <li>
-            <%= link_to "Delete Season", season_path(@season),
+            <%= link_to "Delete Season", admin_season_path(@season),
                 method: :delete,
                 data: {confirm: "Are you sure you want to delete this season?"},
                 class: "delete" %>
@@ -20,14 +20,14 @@
     <h2>Episodes</h2>
     <ul class="actions">
         <li>
-            <%= link_to "New Episode", new_season_episode_path(@season), class: 'new' %>
+            <%= link_to "New Episode", new_admin_season_episode_path(@season), class: 'new' %>
         </li>
     </ul>
 </header>
 <ul id="episodes">
     <% @season.episodes.each do |episode| %>
         <li>
-            <%= link_to "#{episode.number} - #{episode.title}", [@season, episode] %>
+            <%= link_to "#{episode.number} - #{episode.title}", [:admin, @season, episode] %>
         </li>
     <% end %>
 </ul>

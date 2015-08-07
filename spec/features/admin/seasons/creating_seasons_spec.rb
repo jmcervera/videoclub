@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "Users can add seasons", type: :feature do
   before do
-    # visit "/"
-    # click_link "Seasons"
-    visit seasons_url
+    visit admin_root_url
+    click_link "Seasons"
     click_link "New Season"
   end
 
@@ -17,7 +16,7 @@ RSpec.feature "Users can add seasons", type: :feature do
     expect(page).to have_content "Season has been created."
 
     season = Season.find_by(title: "Mr. Robot")
-    expect(page.current_url).to eq season_url(season)
+    expect(page.current_url).to eq admin_season_url(season)
 
     title = "Mr. Robot - Videoclub"
     expect(page).to have_title title

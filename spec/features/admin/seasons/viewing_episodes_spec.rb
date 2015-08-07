@@ -9,7 +9,7 @@ RSpec.describe "Users can view episodes" do
     number: 2, title: "Ones and Zer0es", season: season)}
 
   before do
-    visit seasons_path
+    visit admin_seasons_path
   end
 
   scenario "for a given season" do

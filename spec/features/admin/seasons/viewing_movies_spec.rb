@@ -4,8 +4,8 @@ RSpec.feature "Users can view seasons", type: :feature do
   scenario "with season details" do
     season = FactoryGirl.create(:season, title: 'Forever')
 
-    visit seasons_url
+    visit admin_seasons_url
     click_link "Forever"
-    expect(page.current_url).to eq season_url(season)
+    expect(page.current_url).to eq admin_season_url(season)
   end
 end

@@ -1,5 +1,4 @@
-<%= simple_form_for [season, episode] do |f| %>
-    <%= f.input :number %>
+<%= simple_form_for [:admin, @season] do |f| %>
     <%= f.input :title %>
     <%= f.input :plot %>
     <%= f.button :submit, class: "btn-primary" %>

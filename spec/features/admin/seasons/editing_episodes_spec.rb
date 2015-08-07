@@ -6,7 +6,7 @@ RSpec.describe "Users can edit episodes", type: :feature do
   let(:episode) { FactoryGirl.create(:episode, season: season)}
 
   before do
-    visit season_episode_path(season, episode)
+    visit admin_season_episode_path(season, episode)
     click_link "Edit Episode"
   end
 

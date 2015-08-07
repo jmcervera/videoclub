@@ -10,11 +10,11 @@
         <ul class="actions">
             <li>
                 <%= link_to "Edit Episode",
-                [:edit, @season, @episode], class: "edit" %>
+                [:edit, :admin, @season, @episode], class: "edit" %>
             </li>
             <li>
                 <%= link_to "Delete Episode",
-                    [@season, @episode],
+                    [:admin, @season, @episode],
                     method: :delete,
                     data: {confirm: "Are you sure you want to delete this episode?"},
                     class: "delete" %>

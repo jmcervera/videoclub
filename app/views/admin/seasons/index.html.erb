@@ -2,14 +2,14 @@
     <h1>Seasons</h1>
 
     <ul class="actions">
-        <li><%= link_to "New Season", new_season_path, class: "new" %></li>
+        <li><%= link_to "New Season", new_admin_season_path, class: "new" %></li>
     </ul>
 </header>
 
 
 <div id="seasons">
     <% @seasons.each do |season| %>
-        <h2><%= link_to season.title, season %></h2>
+        <h2><%= link_to season.title, [:admin, season] %></h2>
         <p><%= season.plot %></p>
     <% end %>
 </div>

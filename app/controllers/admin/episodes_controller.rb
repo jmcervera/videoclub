@@ -1,4 +1,4 @@
-class EpisodesController < ApplicationController
+class Admin::EpisodesController < Admin::ApplicationController
   before_action :set_season
   before_action :set_episode, only: [:show, :edit, :update, :destroy]
   def new
@@ -9,7 +9,7 @@ class EpisodesController < ApplicationController
     @episode = @season.episodes.build(episode_params)
     if @episode.save
       flash[:notice] = "Episode has been created."
-      redirect_to [@season, @episode]
+      redirect_to [:admin, @season, @episode]
     else
       flash.now[:alert] = "Episode has not been created."
       render 'new'
@@ -25,7 +25,7 @@ class EpisodesController < ApplicationController
   def update
     if @episode.update(episode_params)
       flash[:notice] = "Episode has been updated."
-      redirect_to [@season, @episode]
+      redirect_to [:admin, @season, @episode]
     else
       flash.now[:alert] = "Episode has not been updated."
       render 'edit'
@@ -35,7 +35,7 @@ class EpisodesController < ApplicationController
   def destroy
     @episode.destroy
     flash[:notice] = "Episode has been deleted."
-    redirect_to @season
+    redirect_to [:admin, @season]
   end
 
   private
