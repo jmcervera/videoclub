@@ -28,6 +28,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'kaminari'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -21,11 +21,14 @@ RSpec.describe "Items API", type: :request do
       expect(json[key].size).to eq(20)
     end
 
+    it_behaves_like "paginated_array"
+
     it "retrieves list of items ordered by creation DESC" do
       key = root_name(json)
       db_ids = @items.map(&:id)
       response_ids = json[key].map{|r| r['id']}
       expect(response_ids).to eq(db_ids.reverse)
     end
+
   end
 end

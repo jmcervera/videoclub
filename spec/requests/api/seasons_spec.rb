@@ -17,6 +17,8 @@ RSpec.describe "Seasons API", type: :request do
       expect(json['seasons'].size).to eq(3)
     end
 
+    it_behaves_like "paginated_array"
+
     it "retrieves list of seasons ordered by creation DESC" do
       db_ids = @seasons.map(&:id)
       response_ids = json['seasons'].map{|r| r['id']}
@@ -30,5 +32,6 @@ RSpec.describe "Seasons API", type: :request do
         expect(numbers).to eq(numbers.sort)
       end
     end
+
   end
 end
