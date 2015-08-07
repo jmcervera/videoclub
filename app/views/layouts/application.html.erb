@@ -20,7 +20,7 @@
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <%= link_to "Videoclub", root_path, class: "navbar-brand" %>
+          <%= link_to "Videoclub", admin_root_path, class: "navbar-brand" %>
           <button type="button" class="navbar-toggle collapsed"
             data-toggle="collapse" data-target="#collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -31,9 +31,6 @@
         </div>
         <div class="collapse navbar-collapse" id="collapse">
           <ul class="nav navbar-nav">
-            <li class="<%= "active" if current_page?("/movies") %>">
-              <%= link_to "Movies", movies_path %>
-            </li>
             <li class="<%= "active" if current_page?("/seasons") %>">
               <%= link_to "Seasons", seasons_path %>
             </li>

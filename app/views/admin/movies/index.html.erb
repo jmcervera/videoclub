@@ -2,14 +2,14 @@
     <h1>Movies</h1>
 
     <ul class="actions">
-        <li><%= link_to "New Movie", new_movie_path, class: "new" %></li>
+        <li><%= link_to "New Movie", new_admin_movie_path, class: "new" %></li>
     </ul>
 </header>
 
 
 <div id="movies">
     <% @movies.each do |movie| %>
-        <h2><%= link_to movie.title, movie %></h2>
+        <h2><%= link_to movie.title, [:admin, movie] %></h2>
         <p><%= movie.plot %></p>
     <% end %>
 </div>

@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'application#index'
     resources :users
+    resources :movies
   end
 
-	root "movies#index"
+	# root "movies#index"
 
-  resources :movies
   resources :seasons do
     resources :episodes, except: :index
   end

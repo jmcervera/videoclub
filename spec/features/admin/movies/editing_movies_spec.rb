@@ -4,7 +4,7 @@ RSpec.feature "Users can edit existing movies", type: :feature do
 
   before do
     FactoryGirl.create(:movie, title: "Star Wars")
-    visit movies_url
+    visit admin_movies_url
     click_link "Star Wars"
     click_link "Edit Movie"
   end

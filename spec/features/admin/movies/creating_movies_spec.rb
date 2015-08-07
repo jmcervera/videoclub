@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Users can create new movies", type: :feature do
   before do
-    visit "/"
+    visit admin_root_path
     click_link "Movies"
     click_link "New Movie"
   end
@@ -16,7 +16,7 @@ RSpec.feature "Users can create new movies", type: :feature do
     expect(page).to have_content "Movie has been created."
 
     movie = Movie.find_by(title: "300: Rise of an Empire")
-    expect(page.current_url).to eq movie_url(movie)
+    expect(page.current_url).to eq admin_movie_url(movie)
 
     title = "300: Rise of an Empire - Videoclub"
     expect(page).to have_title title

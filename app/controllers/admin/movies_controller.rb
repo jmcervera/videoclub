@@ -1,4 +1,4 @@
-class MoviesController < ApplicationController
+class Admin::MoviesController < Admin::ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 	def index
     @movies = Movie.all
@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
 
     if @movie.save
       flash[:notice] = "Movie has been created."
-      redirect_to @movie
+      redirect_to [:admin, @movie]
     else
       flash.now[:alert] = "Movie has not been created."
       render "new"
@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
   def update
     if @movie.update(movie_params)
       flash[:notice] = "Movie has been updated."
-      redirect_to @movie
+      redirect_to [:admin, @movie]
     else
       flash.now[:alert] = "Movie has not been updated."
       render "edit"
@@ -39,7 +39,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie.destroy
     flash[:notice] = "Movie has been deleted."
-    redirect_to movies_path
+    redirect_to admin_movies_path
   end
 
   private
@@ -48,7 +48,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The movie you were looking for could not be found."
-    redirect_to movies_path
+    redirect_to admin_movies_path
   end
 
   def movie_params

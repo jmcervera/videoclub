@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "Users can add seasons", type: :feature do
   before do
-    visit "/"
-    click_link "Seasons"
+    # visit "/"
+    # click_link "Seasons"
+    visit seasons_url
     click_link "New Season"
   end
 
