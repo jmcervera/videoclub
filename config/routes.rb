@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: [] do
       resources :purchases, only: [:create]
     end
+    get '/user/:user_id/library' => 'users#library', as: :user_library
   end
 
   namespace :admin do
