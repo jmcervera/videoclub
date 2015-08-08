@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808161728) do
+ActiveRecord::Schema.define(version: 20150808162553) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer  "number"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20150808161728) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "items", ["title"], name: "index_items_on_title"
+
   create_table "purchases", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "item_id"
@@ -41,7 +43,9 @@ ActiveRecord::Schema.define(version: 20150808161728) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "purchases", ["expire_at"], name: "index_purchases_on_expire_at"
   add_index "purchases", ["item_id"], name: "index_purchases_on_item_id"
+  add_index "purchases", ["purchased_at"], name: "index_purchases_on_purchased_at"
   add_index "purchases", ["user_id"], name: "index_purchases_on_user_id"
 
   create_table "users", force: :cascade do |t|
