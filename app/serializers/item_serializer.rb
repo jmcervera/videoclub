@@ -1,4 +1,4 @@
 class ItemSerializer < ActiveModel::Serializer
-  root :item
+  cache key: 'item'
   attributes :id, :type, :title, :plot
 end
